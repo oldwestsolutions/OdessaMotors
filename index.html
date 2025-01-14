@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summit Motors | Luxury Automotive Excellence</title>
+    <style>
+        :root {
+            --primary-color: #0a2240;
+            --secondary-color: #c8a977;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: var(--primary-color);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .hero {
+            height: 90vh;
+            background-image: linear-gradient(rgba(10,34,64,0.7), rgba(10,34,64,0.7)), url('/api/placeholder/1400/800');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background-color: #b69862;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .features {
+            padding: 6rem 2rem;
+            background-color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 3rem 2rem;
+            background-color: var(--light-gray);
+            border-radius: 5px;
+            transition: var(--transition);
+            text-align: left;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .vehicles {
+            padding: 6rem 2rem;
+            background-color: var(--light-gray);
+        }
+
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .vehicle-card {
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .vehicle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .vehicle-image {
+            height: 200px;
+            background: var(--light-gray);
+        }
+
+        .vehicle-info {
+            padding: 1.5rem;
+        }
+
+        .vehicle-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .vehicle-price {
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .contact {
+            padding: 6rem 2rem;
+            background-color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem;
+            border-radius: 5px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-details p {
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SUMMIT MOTORS</div>
+            <div class="nav-links">
+                <a href="#vehicles">Our Vehicles</a>
+                <a href="#features">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Defining Automotive Excellence</h1>
+            <p>Experience unparalleled luxury and performance with our curated collection of premium vehicles</p>
+            <a href="#vehicles" class="cta-button">Explore Our Fleet</a>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2 class="section-title">The Summit Advantage</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Exceptional Service</h3>
+                <p>Our certified master technicians provide comprehensive maintenance and repair services, ensuring your vehicle performs at its peak. Experience the difference of our state-of-the-art service center.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Luxury Portfolio</h3>
+                <p>Browse our meticulously curated selection of premium vehicles from renowned manufacturers. Each vehicle undergoes rigorous inspection to meet our exacting standards of excellence.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Tailored Financing</h3>
+                <p>Our finance experts work with leading institutions to create customized solutions that align with your goals. Enjoy competitive rates and flexible terms designed around your needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="vehicles" id="vehicles">
+        <h2 class="section-title">Featured Vehicles</h2>
+        <div class="vehicle-grid">
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="/api/placeholder/400/200" alt="Luxury Sedan" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="vehicle-info">
+                    <h3>2025 Executive Sedan</h3>
+                    <p>Premium comfort meets dynamic performance</p>
+                    <p class="vehicle-price">Starting at $75,000</p>
+                </div>
+            </div>
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="/api/placeholder/400/200" alt="Luxury SUV" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="vehicle-info">
+                    <h3>2025 Luxury SUV</h3>
+                    <p>Versatility without compromise</p>
+                    <p class="vehicle-price">Starting at $85,000</p>
+                </div>
+            </div>
+            <div class="vehicle-card">
+                <div class="vehicle-image">
+                    <img src="/api/placeholder/400/200" alt="Sports Car" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div class="vehicle-info">
+                    <h3>2025 Performance Coupe</h3>
+                    <p>Pure driving excellence</p>
+                    <p class="vehicle-price">Starting at $95,000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">Connect With Us</h2>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3>Visit Our Showroom</h3>
+                <p>Experience our exceptional service and premium vehicle collection in person.</p>
+                <div class="contact-details">
+                    <p>123 Luxury Drive</p>
+                    <p>Beverly Hills, CA 90210</p>
+                    <p>Tel: (800) 123-4567</p>
+                    <p>Email: contact@summitmotors.com</p>
+                </div>
+            </div>
+            <div class="map">
+                <img src="/api/placeholder/600/400" alt="Location Map" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Summit Motors</h4>
+                <ul>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#team">Leadership Team</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#news">News & Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="#sales">Vehicle Sales</a></li>
+                    <li><a href="#service">Service Center</a></li>
+                    <li><a href="#parts">Genuine Parts</a></li>
+                    <li><a href="#finance">Financing Options</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Customer Support</h4>
+                <ul>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#schedule">Schedule Service</a></li>
+                    <li><a href="#warranty">Warranty Information</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#disclaimer">Disclaimer</a></li>
+                    <li><a href="#sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Summit Motors. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
